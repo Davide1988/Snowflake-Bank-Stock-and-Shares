@@ -7,6 +7,7 @@ const SharesRenderView = function(sharesSelected , container){
 
 SharesRenderView.prototype.render = function () {
 
+this.container.innerHTML = ""
 
 this.sharesSelected.forEach((share) =>{
 
@@ -28,6 +29,11 @@ this.sharesSelected.forEach((share) =>{
   const date_acquisition = document.createElement('li')
   date_acquisition.textContent = `Date of acquisition ${share.date_acquisition}`
   ul.appendChild(date_acquisition)
+
+  const yahoo = document.createElement('a')
+  yahoo.textContent = `Look at ${share.name} on Yahoo!`
+  yahoo.href = `https://finance.yahoo.com/quote/${share.name_share}/`
+  ul.appendChild(yahoo)
 
 })
 

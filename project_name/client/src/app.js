@@ -12,7 +12,13 @@ console.log("javascript up and running my lord");
  const firstView = new SharesFirstView(categorySelector, nameSelector, container)
  firstView.bindEvent();
 
+
+
+
+
  const url = 'http://localhost:3000/api/shares'
  const shares = new Shares(url)
  shares.getData();
+
+
 });

@@ -17,15 +17,15 @@ SharesFirstView.prototype.bindEvent = function () {
   this.categorySelector.addEventListener('change', (evt) => {
     const categoryTargeted = evt.target.value
     const sharesWithTargetedCategory = this.shares.filter(share => share.category === categoryTargeted)
-    this.populateNameSelector(sharesWithTargetedCategory);
-    })
+    this.populateNameSelector(sharesWithTargetedCategory)
+  })
   this.nameSelector.addEventListener('change', (evt) =>{
     const nameTargeted = evt.target.value
     const sharesWithTargetedCategoryAndName = this.shares.filter(share => share.name === nameTargeted)
-    const passToRender = new SharesRenderView(sharesWithTargetedCategoryAndName, this.container);
+    const passToRender = new SharesRenderView(sharesWithTargetedCategoryAndName, this.container)
     passToRender.render()
   })
- }
+};
 
 
 
@@ -44,10 +44,20 @@ SharesFirstView.prototype.populateNameSelector = function (shares) {
 
   const uniqueNameCategory = [...new Set(shares.map(share=> share.name))];
 
+  this.nameSelector.innerHTML = ""
+
+  const selectName = document.createElement('option')
+  selectName.selected = "true"
+  selectName.disabled = "disabled"
+  selectName.textContent = "Select name"
+  this.nameSelector.appendChild(selectName)
+
+
   uniqueNameCategory.forEach((name) => {
     const nameOption = document.createElement('option')
     nameOption.textContent = name
     this.nameSelector.appendChild(nameOption)
+
   })
 };
 
