@@ -29,21 +29,18 @@ Shares.prototype.getData= function () {
 };
 
 Shares.prototype.unwrapper= function () {
+  let shareWithPriceArray=[]
   const theDate = this.getYesterdayDate()
-  console.log(theDate);
   for (i = 0; i < this.liveStock.length; i++){
-
-
     this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
     this.portfolio[i].number_of_shares;
-
-    const shareWithPrice = {
+    shareWithPrice = {
       name_of_share : this.portfolio[i].name_share,
       value : this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
     }
-    this.forCharts.push(shareWithPrice)
+    shareWithPriceArray.push(shareWithPrice)
   }
-console.log(this.forCharts);
+  PubSub.publish('shares:shares_pie_chart:object' ,shareWithPriceArray)
 
 };
 

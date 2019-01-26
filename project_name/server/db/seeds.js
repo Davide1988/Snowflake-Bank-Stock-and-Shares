@@ -23,7 +23,7 @@ db.shares.insertMany([
     name_share: "BAR",
     category: "Food",
     number_of_shares: 100,
-    date_acquisition: "2012-02-14",
+    date_acquisition: "2017-02-14",
     web_site: "https://www.barillagroup.com/en"
   }
 ]);

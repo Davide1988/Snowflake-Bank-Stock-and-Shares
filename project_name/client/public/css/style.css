@@ -1,11 +1,40 @@
-header{
-  background-color: #0074D9;
-  position: relative;
-  width: 100%;
-  height: 50px;
-  background-size: 30px;
+/*-------------------------------*/
+/*         BASIC SETUP           */
+/*-------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html{
+    background-color: #fff;
+    color: #000000;
+    font-family: 'lato','Arial','sans-serif';
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+/*-------------------------------*/
+/*     REUSABEL COMPONENTS       */
+/*-------------------------------*/
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+header{
+    height: 0px;
+    padding-top: 100px;
+}
+
+section {
+    padding: 20px 0;
+
+}
 
 footer {
   bottom: 0;
@@ -17,4 +46,60 @@ footer {
 
 #selector-and-container {
   background-color: #00688B;
+  length: 50px;
+  width: 200px;
+}
+
+#fextry{
+  display: flex;
+  justify-content: space-around;
+}
+
+#graphs{
+  min-height: 400px;
+  width: 300px;
+}
+
+#container{
+  font-size: 80%;
+}
+
+ul{
+  margin-top: 10px;
+}
+
+
+
+nav{
+    background-color: #0074D9;
+    position: fixed;
+    width: 100%;
+}
+
+
+.main-nav{
+    float: right;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.main-nav li{
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited{
+    padding: 8px 0px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+   border-bottom: 2px solid #e67e22;
 }
