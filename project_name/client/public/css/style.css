@@ -36,6 +36,10 @@ section {
 
 }
 
+.pie-chart{
+  height: 400px;
+}
+
 footer {
   bottom: 0;
   width: 100%;
@@ -78,7 +82,7 @@ nav{
 
 
 .main-nav{
-    float: right;
+    float: left;
     list-style: none;
     margin-top: 20px;
 }

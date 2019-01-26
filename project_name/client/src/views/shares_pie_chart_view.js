@@ -16,11 +16,23 @@ SharesPieChart.prototype.bindEvent = function () {
     const y = this.getY(objects, sum);
     const pieHelper = new PieHelper(names , y)
     const data = pieHelper.getData()
+    this.renderInfo(sum)
     this.pieChartRender(data)
 
   })
-
 }
+
+SharesPieChart.prototype.renderInfo= function (sum) {
+
+  const infoDiv = document.createElement('div')
+  infoDiv.classList.add('pie-chart')
+  this.container.appendChild(infoDiv)
+
+  const totalMoney = document.createElement('p')
+  totalMoney.textContent = `This is the total amount for your shares : $${sum}`
+  infoDiv.appendChild(totalMoney)
+
+};
 
 SharesPieChart.prototype.getNames = function (objects) {
   return objects.map((object) => object.name_of_share)
@@ -38,12 +50,16 @@ SharesPieChart.prototype.getY = function (objects, sum) {
 
 SharesPieChart.prototype.pieChartRender = function (data) {
 
-  var myChart = Highcharts.chart(this.container, {
+  const forChart = document.createElement('div')
+  this.container.appendChild(forChart)
+
+
+  var myChart = Highcharts.chart(forChart, {
         chart: {
             type: 'pie'
         },
         title: {
-            text: 'Shares'
+            text: 'Your portfolio shares'
         },
         tooltip:{
           pointFormat :'{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -52,10 +68,9 @@ SharesPieChart.prototype.pieChartRender = function (data) {
             name: 'share',
             data: data
       } ]
-
     });
-
 }
+
 
 
 
