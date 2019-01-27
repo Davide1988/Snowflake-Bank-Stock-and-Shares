@@ -3,10 +3,20 @@ const Highcharts = require('highcharts')
 const PieHelper = require('../helpers/pie_helper.js')
 
 
-const SharesPieChart = function(container){
+const SharesPieChart = function(container, home ){
   this.container = container
+  this.home = home
 
 }
+
+
+
+// SharesPieChart.prototype.clickHome = function () {
+//   this.home.addEventListener('click', (evt) =>{
+//     this.bindEvent();
+//   })
+// };
+
 
 SharesPieChart.prototype.bindEvent = function () {
   PubSub.subscribe('shares:shares_pie_chart:object', (evt) =>{
@@ -30,13 +40,14 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   infoDiv.classList.add('pie-chart')
   this.container.appendChild(infoDiv)
 
+  const greetings = document.createElement('h3')
+  greetings.textContent = `Hi Bob , here a short view of your investments :  `
+  infoDiv.appendChild(greetings)
+
 
   const ul = document.createElement('ul')
   infoDiv.appendChild(ul)
 
-  const greetings = document.createElement('li')
-  greetings.textContent = `Hi user , here a short view of your investments :  `
-  ul.appendChild(greetings)
 
   const howManyInvestment = document.createElement('li')
   howManyInvestment.textContent = `You have invested in ${this.objects.length} shares`

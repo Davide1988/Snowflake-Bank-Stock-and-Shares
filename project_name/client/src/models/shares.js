@@ -23,6 +23,11 @@ Shares.prototype.getData= function () {
       this.liveStock = evt.detail
       this.unwrapper(this.liveStock);
     })
+    PubSub.subscribe('NewShareRender: add to portfolio click', (evt) =>{
+      const newShare = evt.detail
+      this.post(newShare)
+    })
+
 };
 
 Shares.prototype.unwrapper= function () {
@@ -78,13 +83,14 @@ else {
 }
 };
 
-// this.liveStock.forEach((liveStock) =>{
-//     this.portfolio.forEach((share) =>{
-//       if (share.name_share === liveStock['Meta Data']['2. Symbol']){
-//         console.log(share);
-//       };
-//     })
-// })
+Shares.prototype.post = function (share) {
+  const request = new RequestHelper(this.url)
+  request.post(share)
+    .then((newList) =>{
+      PubSub.publish('shares:sharesFirstView:sharesData', newList)
+    })
+};
+
 
 
 module.exports = Shares;

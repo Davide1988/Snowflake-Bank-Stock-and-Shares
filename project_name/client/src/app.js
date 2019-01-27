@@ -1,21 +1,33 @@
 const Shares = require('./models/shares.js')
 const SharesFirstView = require('./views/shares_first_view.js')
 const SharesPieChart = require('./views/shares_pie_chart_view.js')
+const NewShare = require('./models/new_share.js')
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
+ //  const homeButton = document.querySelector('#home')
+ //  homeButton.addEventListener('click' , (evt) => {
+ //    evt.preventDefault()
+ //    const bla = new SharesPieChart()
+ //    bla.bindEvent()
+ // })
 
+ const buyNewShareButton =  document.querySelector('#new-share')
+ const spaceForNewShare = document.querySelector('#fextry')
+ const urlForNewShare = 'https://api.iextrading.com/1.0/stock/market/collection/sector?collectionName=Technology'
+ const newShare = new NewShare(spaceForNewShare, buyNewShareButton, urlForNewShare)
+ newShare.bindEvent()
 
+ const homeButton = document.querySelector('#home')
  const graphs = document.querySelector('#fextry')
- const pieGraphView = new SharesPieChart(graphs)
+ const pieGraphView = new SharesPieChart(graphs, home)
+ //add button
+ // pieGraphView.clickHome()
  pieGraphView.bindEvent()
 
-//  const homeButton = document.querySelector('#home')
-//  homeButton.addEventListener('click' , (evt) =>{
-//    const bla = new SharesPieChart()
-//    bla.bindEvent()
-// })
+
+
 
 
  const space = document.querySelector('#fextry')

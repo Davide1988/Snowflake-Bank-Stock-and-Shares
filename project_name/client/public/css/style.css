@@ -9,7 +9,7 @@
 }
 
 html{
-    background-color: #fff;
+    background-image: url('http://www.freepptbackgrounds.net/wp-content/uploads/2014/04/Light-Blue-Lines-Powerpoint-Backgrounds.jpg');
     color: #000000;
     font-family: 'lato','Arial','sans-serif';
     font-weight: 300;
@@ -17,9 +17,7 @@ html{
     text-rendering: optimizeLegibility;
 }
 
-body {
-  background-image: url('http://www.freepptbackgrounds.net/wp-content/uploads/2014/04/Light-Blue-Lines-Powerpoint-Backgrounds.jpg')
-}
+
 /*-------------------------------*/
 /*     REUSABLE COMPONENTS       */
 /*-------------------------------*/
@@ -73,6 +71,7 @@ footer {
 
 ul{
   margin-top: 10px;
+  font-size: 80%;
 }
 
 li {
