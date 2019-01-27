@@ -8,11 +8,10 @@ const NewShareRender = function(company, space){
 
 NewShareRender.prototype.render = function () {
 
-  const result = document.createElement('div')
-  this.space.appendChild(result)
+
 
   const companyUl = document.createElement('ul')
-  result.appendChild(companyUl)
+  this.space.appendChild(companyUl)
 
   const companyName = document.createElement('li')
   companyName.textContent = `Company name : ${this.company[0].companyName}`
@@ -28,13 +27,13 @@ NewShareRender.prototype.render = function () {
 
   this.inputShares = document.createElement('input')
   this.inputShares.type = "number"
-  result.appendChild(this.inputShares)
+  this.space.appendChild(this.inputShares)
 
   const buyButton = document.createElement('button')
   buyButton.textContent = "Buy share"
   buyButton.type = "button"
   buyButton.value = "Buy share"
-  result.appendChild(buyButton)
+  this.space.appendChild(buyButton)
 
   buyButton.addEventListener('click', (evt) =>{
     evt.preventDefault()

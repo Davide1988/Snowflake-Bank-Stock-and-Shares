@@ -34,6 +34,7 @@ Shares.prototype.unwrapper= function () {
   let shareWithPriceArray=[]
   const theDate = this.getYesterdayDate()
   for (i = 0; i < this.liveStock.length; i++){
+    console.log(this.liveStock);
 
     this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
     this.portfolio[i].number_of_shares;
