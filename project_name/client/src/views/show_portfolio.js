@@ -10,7 +10,11 @@ const ShowPortfolio = function(space , shares){
 ShowPortfolio.prototype.render = function () {
 
   const spaceForSelectors = document.createElement('div')
+  spaceForSelectors.classList.add('selectors')
   this.space.appendChild(spaceForSelectors)
+
+  this.resultDiv = document.createElement('div')
+  this.space.appendChild(this.resultDiv)
 
 
   this.categorySelector = document.createElement('select')
@@ -30,12 +34,12 @@ ShowPortfolio.prototype.render = function () {
   this.nameSelector.addEventListener('change', (evt) =>{
     const nameTargeted = evt.target.value
     if (nameTargeted === "all"){
-      const passToRenderAll = new SharesRenderView (this.sharesWithTargetedCategory, this.space)
+      const passToRenderAll = new SharesRenderView (this.sharesWithTargetedCategory, this.resultDiv)
       passToRenderAll.render()
     }
     else {
     const sharesWithTargetedCategoryAndName = this.shares.filter(share => share.name === nameTargeted)
-    const passToRender = new SharesRenderView(sharesWithTargetedCategoryAndName, this.space)
+    const passToRender = new SharesRenderView(sharesWithTargetedCategoryAndName, this.resultDiv)
     passToRender.render()
   }
   })
@@ -45,6 +49,19 @@ ShowPortfolio.prototype.render = function () {
   ShowPortfolio.prototype.populateCategorySelector = function (shares) {
 
   const uniqueSharesCategory = [...new Set(shares.map(share=> share.category))];
+
+
+  const selectCategory = document.createElement('option')
+  selectCategory.selected = "true"
+  selectCategory.disabled = "disabled"
+  selectCategory.textContent = "Select Category"
+  this.categorySelector.appendChild(selectCategory)
+
+  const selectName = document.createElement('option')
+  selectName.selected = "true"
+  selectName.disabled = "disabled"
+  selectName.textContent = "Select name"
+  this.nameSelector.appendChild(selectName)
 
   uniqueSharesCategory.forEach((category) => {
     const categoryOption = document.createElement('option')
@@ -57,7 +74,7 @@ ShowPortfolio.prototype.render = function () {
 
   const uniqueNameCategory = [...new Set(shares.map(share=> share.name))];
 
-  this.nameSelector.innerHTML = ""
+  this.nameSelector.innerHTML = " "
 
   const selectName = document.createElement('option')
   selectName.selected = "true"

@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
  const space = document.querySelector('#fextry')
  const portfolioButton = document.querySelector('#portfolio')
- const categorySelector = document.querySelector('#category-selector')
- const nameSelector = document.querySelector('#name-selector')
- const container = document.querySelector('#container')
  const firstView = new SharesFirstView(space, portfolioButton)
  firstView.bindEvent();
 

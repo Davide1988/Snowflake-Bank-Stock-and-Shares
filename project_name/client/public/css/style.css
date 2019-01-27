@@ -17,8 +17,11 @@ html{
     text-rendering: optimizeLegibility;
 }
 
+body {
+  background-image: url('http://www.freepptbackgrounds.net/wp-content/uploads/2014/04/Light-Blue-Lines-Powerpoint-Backgrounds.jpg')
+}
 /*-------------------------------*/
-/*     REUSABEL COMPONENTS       */
+/*     REUSABLE COMPONENTS       */
 /*-------------------------------*/
 
 .row{
@@ -72,6 +75,13 @@ ul{
   margin-top: 10px;
 }
 
+li {
+  margin-top: 10px;
+}
+
+.selector{
+
+}
 
 
 nav{

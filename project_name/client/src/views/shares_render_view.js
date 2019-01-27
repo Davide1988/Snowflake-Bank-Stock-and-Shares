@@ -7,21 +7,13 @@ const SharesRenderView = function(sharesSelected, space){
 
 SharesRenderView.prototype.render = function () {
 
-const result = document.createElement('div')
-this.space.appendChild(result)
-
-this.populate(result)
-
-}
-
-SharesRenderView.prototype.populate = function (result) {
-
+this.space.innerHTML = " "
 
   this.sharesSelected.forEach((share) =>{
 
 
     const ul = document.createElement('ul')
-    result.appendChild(ul)
+    this.space.appendChild(ul)
 
     const name = document.createElement('li')
     name.textContent = `Name : ${share.name}`

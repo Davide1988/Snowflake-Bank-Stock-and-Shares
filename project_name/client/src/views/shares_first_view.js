@@ -6,7 +6,6 @@ const SharesFirstView = function(space , button){
   this.space = space
   this.button = button
 
-
 };
 
 

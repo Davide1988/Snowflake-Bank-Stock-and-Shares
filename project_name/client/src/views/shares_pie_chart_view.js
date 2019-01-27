@@ -10,10 +10,10 @@ const SharesPieChart = function(container){
 
 SharesPieChart.prototype.bindEvent = function () {
   PubSub.subscribe('shares:shares_pie_chart:object', (evt) =>{
-    objects = evt.detail
-    const names = this.getNames(objects);
-    const sum = this.getSum(objects)
-    const y = this.getY(objects, sum);
+    this.objects = evt.detail
+    const names = this.getNames(this.objects);
+    const sum = this.getSum(this.objects)
+    const y = this.getY(this.objects, sum);
     const pieHelper = new PieHelper(names , y)
     const data = pieHelper.getData()
     this.renderInfo(sum)
@@ -24,13 +24,30 @@ SharesPieChart.prototype.bindEvent = function () {
 
 SharesPieChart.prototype.renderInfo= function (sum) {
 
+
+
   const infoDiv = document.createElement('div')
   infoDiv.classList.add('pie-chart')
   this.container.appendChild(infoDiv)
 
-  const totalMoney = document.createElement('p')
+
+  const ul = document.createElement('ul')
+  infoDiv.appendChild(ul)
+
+  const greetings = document.createElement('li')
+  greetings.textContent = `Hi user , here a short view of your investments :  `
+  ul.appendChild(greetings)
+
+  const howManyInvestment = document.createElement('li')
+  howManyInvestment.textContent = `You have invested in ${this.objects.length} shares`
+  ul.appendChild(howManyInvestment)
+
+  const totalMoney = document.createElement('li')
   totalMoney.textContent = `This is the total amount for your shares : $${sum}`
-  infoDiv.appendChild(totalMoney)
+  ul.appendChild(totalMoney)
+
+
+
 
 };
 

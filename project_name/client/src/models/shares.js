@@ -8,9 +8,6 @@ const Shares = function(url){
   this.url = url
   this.forCharts = []
 
-
-
-
 }
 
 Shares.prototype.getData= function () {
@@ -32,6 +29,7 @@ Shares.prototype.unwrapper= function () {
   let shareWithPriceArray=[]
   const theDate = this.getYesterdayDate()
   for (i = 0; i < this.liveStock.length; i++){
+
     this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
     this.portfolio[i].number_of_shares;
     shareWithPrice = {
@@ -46,6 +44,29 @@ Shares.prototype.unwrapper= function () {
 
 Shares.prototype.getYesterdayDate = function () {
   const today = new Date
+  const day = today.getDay()
+  if (day === 0){
+    let dd = today.getDate() - 2;
+    let mm = today.getMonth() + 1;
+    const yyyy = today.getFullYear();
+
+    if (dd < 10) {   dd = '0' + dd; } if (mm < 10) {   mm = '0' + mm; }
+
+
+    return yesterdayDate =  yyyy + "-" + mm + "-" + dd
+
+  }
+  else if (day === 1){
+  let dd = today.getDate() - 3;
+  let mm = today.getMonth() + 1;
+  const yyyy = today.getFullYear();
+
+  if (dd < 10) {   dd = '0' + dd; } if (mm < 10) {   mm = '0' + mm; }
+
+
+  return yesterdayDate =  yyyy + "-" + mm + "-" + dd
+}
+else {
   let dd = today.getDate() - 1;
   let mm = today.getMonth() + 1;
   const yyyy = today.getFullYear();
@@ -54,7 +75,7 @@ Shares.prototype.getYesterdayDate = function () {
 
 
   return yesterdayDate =  yyyy + "-" + mm + "-" + dd
-
+}
 };
 
 // this.liveStock.forEach((liveStock) =>{
