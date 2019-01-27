@@ -27,6 +27,10 @@ Shares.prototype.getData= function () {
       const newShare = evt.detail
       this.post(newShare)
     })
+    PubSub.subscribe('SharesRenderView:Shares:id' , (evt) =>{
+      const shareId = evt.detail
+      this.delete(shareId)
+    })
 
 };
 
@@ -87,6 +91,14 @@ else {
 Shares.prototype.post = function (share) {
   const request = new RequestHelper(this.url)
   request.post(share)
+    .then((newList) =>{
+      PubSub.publish('shares:sharesFirstView:sharesData', newList)
+    })
+};
+
+Shares.prototype.delete = function (id) {
+  const request = new RequestHelper(this.url)
+  request.delete(id)
     .then((newList) =>{
       PubSub.publish('shares:sharesFirstView:sharesData', newList)
     })
