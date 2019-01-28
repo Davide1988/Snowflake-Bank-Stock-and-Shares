@@ -9,28 +9,85 @@
 }
 
 html{
-    background-image: url('http://www.freepptbackgrounds.net/wp-content/uploads/2014/04/Light-Blue-Lines-Powerpoint-Backgrounds.jpg');
+
     color: #000000;
-    font-family: 'lato','Arial','sans-serif';
+    font-family: 'helvetica';
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
 }
+
+/* gray header */
+.top-gray-header {
+background:#eceff0;
+padding-top:.5em;
+border-top: solid 1px #555555;
+border-bottom: solid 1px #555555;
+}
+/*  */
+
+
+/* navigation */
+.navigation ul li {
+display:inline-block;
+list-style:none;
+float: right;
+margin-bottom: 900px;
+text-decoration:none;
+color:#555555;
+padding: .8em;
+display: block;
+/* border-right: 2px solid rgba(225, 236, 231, 0.27); */
+font-weight: bold;
+}
+
+.navigation ul li:hover{
+background:#555555;
+color:  white;
+}
+/*  */
 
 
 /*-------------------------------*/
 /*     REUSABLE COMPONENTS       */
 /*-------------------------------*/
 
+/* selector option */
+.styled-select {
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+
+
+
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+
+
+  background-color: #555555;
+
+
+
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: white;
+  height: 29px;
+  padding: 5px; /* If you add too much padding here, the options won’t show in IE */
+  width: 268px;
+}
+
+
+
 .row{
     max-width: 1140px;
     margin: 0 auto;
 }
+/* end of selector options */
 
-header{
-    height: 0px;
-    padding-top: 100px;
-}
 
 section {
     padding: 20px 0;
@@ -39,15 +96,10 @@ section {
 
 .pie-chart{
   height: 400px;
+  color: #55555;
 }
 
-footer {
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  background-color: #0074D9;
-  background-size: 30px;
-}
+
 
 #selector-and-container {
   background-color: #00688B;
@@ -58,6 +110,7 @@ footer {
 #fextry{
   display: flex;
   justify-content: space-around;
+  font-family: "helvetica"
 }
 
 #graphs{
@@ -78,19 +131,48 @@ li {
   margin-top: 10px;
 }
 
-.selector{
 
+
+
+
+
+
+/* footer section */
+.footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:50px;
+   margin: 10px;
+   display:flex;
+   align-items: center;
+   padding-left: 10px;
+   background:#eceff0;
 }
 
+.copyright p{
+  word-spacing:1px;
+  color: gray;
+  font-family: 'helvetica', serif;
+  font-size: 12px;
 
-nav{
-    background-color: #0074D9;
-    position: fixed;
-    width: 100%;
 }
+/*  */
 
 
-.main-nav{
+
+/* taken out css */
+
+/* footer {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  background-color: #0074D9;
+  background-size: 30px;
+} */
+
+
+/* .main-nav{
     float: left;
     list-style: none;
     margin-top: 20px;
@@ -116,3 +198,11 @@ nav{
 .main-nav li a:active{
    border-bottom: 2px solid #e67e22;
 }
+ */
+
+
+ /* nav{
+     background-color: #0074D9;
+     position: fixed;
+     width: 100%;
+ } */
