@@ -9,7 +9,7 @@
 }
 
 html{
-    
+
     color: #000000;
     font-family: 'lato','Arial','sans-serif';
     font-weight: 300;
@@ -26,6 +26,29 @@ border-bottom: solid 1px #555555;
 }
 /*  */
 
+
+/* navigation */
+.navigation ul li {
+display:inline-block;
+list-style:none;
+float: right;
+}
+
+.navigation ul li a{
+
+text-decoration:none;
+color:#555555;
+padding: .8em;
+display: block;
+/* border-right: 2px solid rgba(225, 236, 231, 0.27); */
+font-weight: bold;
+}
+
+.navigation ul li a:hover{
+background:#555555;
+color:  white;
+}
+/*  */
 
 
 /*-------------------------------*/
