@@ -103,6 +103,11 @@ CreateTable.prototype.constructTHead = function(colNames, header) {
         row.appendChild(col);
         header.appendChild(row);
     });
+    var col = document.createElement("th");
+    col.innerText = (" ");
+    row.appendChild(col);
+    header.appendChild(row);
+
 }
 
 CreateTable.prototype.constructTBody = function(data, colNames, tableDiv) {

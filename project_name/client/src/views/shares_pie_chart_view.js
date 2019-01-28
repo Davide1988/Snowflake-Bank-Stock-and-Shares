@@ -11,11 +11,7 @@ const SharesPieChart = function(container, home ){
 
 
 
-// SharesPieChart.prototype.clickHome = function () {
-//   this.home.addEventListener('click', (evt) =>{
-//     this.bindEvent();
-//   })
-// };
+
 
 
 SharesPieChart.prototype.bindEvent = function () {
@@ -54,7 +50,7 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   ul.appendChild(howManyInvestment)
 
   const totalMoney = document.createElement('li')
-  totalMoney.textContent = `This is the total amount for your shares : $${sum}`
+  totalMoney.textContent = `This is the total amount for your shares : $${sum.toFixed(2)}`
   ul.appendChild(totalMoney)
 
 

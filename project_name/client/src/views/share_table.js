@@ -6,8 +6,6 @@ const SharesTable = function(data,table){
     this.data = data;
     this.table = table;
 
-    console.log(this.data);
-
 };
 
 

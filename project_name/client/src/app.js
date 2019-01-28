@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
  const homeButton = document.querySelector('#home')
  const graphs = document.querySelector('#fextry')
  const pieGraphView = new SharesPieChart(graphs, home)
- //add button
- // pieGraphView.clickHome()
  pieGraphView.bindEvent()
 
 

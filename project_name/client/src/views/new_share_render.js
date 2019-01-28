@@ -36,6 +36,8 @@ NewShareRender.prototype.render = function () {
   this.space.appendChild(buyButton)
 
   buyButton.addEventListener('click', (evt) =>{
+    this.space.innerHTML = `You bought ${this.inputShares.value} shares of ${this.company[0].companyName} for a value of  $ ${this.company[0].previousClose * this.inputShares.value}`
+
     evt.preventDefault()
     companyData = {
       name: this.company[0].companyName,
