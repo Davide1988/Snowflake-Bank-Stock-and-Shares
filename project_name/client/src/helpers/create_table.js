@@ -1,3 +1,4 @@
+const PubSub = require('./pub_sub.js')
 
 var table;
 var header;
@@ -54,6 +55,19 @@ CreateTable.prototype.buildTable = function(data) {
             col.innerText = item[name.index];
             row.appendChild(col);
         });
+
+        var col = document.createElement("th");
+        var btn = document.createElement("button")
+        btn.setAttribute("id", "btn")
+        btn.textContent = 'Sell Share'
+        btn.value = item._id
+        col.appendChild(btn);
+        row.appendChild(col);
+
+        btn.addEventListener('click', (evt) => {
+        this.table.innerHTML = "Shares sold"
+        PubSub.publish('SharesRenderView:Shares:id', evt.target.value)
+           })
 
         this.body.appendChild(row);
         this.table.appendChild(this.body);

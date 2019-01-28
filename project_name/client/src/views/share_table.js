@@ -24,43 +24,24 @@ const SharesTable = function(data,table){
                     { name:"Category", index:"category" },
                     { name:"Symbol", index:"name_share" },
                     { name:"Shares", index:"number_of_shares" },
-                    // { name:"Sell", index:this.icon()}
                 ]
 
             });
-            this.data.forEach ((element) => {
-              const deleteButton = document.createElement('button')
-                deleteButton.textContent = "Sell Shares"
-                deleteButton.type = "button"
-                deleteButton.value = element._id
-                deleteButton.classList.add('deleteButton')
-                this.table.appendChild(deleteButton)
-
-                deleteButton.addEventListener('click', (evt) => {
-                  this.table.innerHTML = "Shares sold"
-                  PubSub.publish('SharesRenderView:Shares:id', evt.target.value)
-            })
-        })
+        //     this.data.forEach ((element) => {
+        //       const deleteButton = document.createElement('button')
+        //         deleteButton.textContent = "Sell Shares"
+        //         deleteButton.type = "button"
+        //         deleteButton.value = element._id
+        //         deleteButton.classList.add('deleteButton')
+        //         this.table.appendChild(deleteButton)
+        //
+        //         deleteButton.addEventListener('click', (evt) => {
+        //           this.table.innerHTML = "Shares sold"
+        //           PubSub.publish('SharesRenderView:Shares:id', evt.target.value)
+        //     })
+        // })
       }
 
-        // SharesTable.prototype.icon = function () {
-        //
-        //   const icon = document.createElement('a')
-        //   icon.textContent = "Delete"
-        //   return icon
-        //
-        // };
-        //
-        // SharesTable.prototype.delete= function () {
-        //   const deleteButton = document.createElement('button')
-        //   deleteButton.textContent = "Sell Shares"
-        //   deleteButton.type = "button"
-        //   deleteButton.value = this.data._id
-        //   console.log(this.data);
-        //   console.log(deleteButton);
-        //   return deleteButton
-        //
-        // };
 
 
   module.exports = SharesTable;
