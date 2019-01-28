@@ -11,7 +11,7 @@ const ShowPortfolio = function(space , shares){
 ShowPortfolio.prototype.render = function () {
 
   const spaceForSelectors = document.createElement('div')
-  spaceForSelectors.classList.add('selectors')
+  spaceForSelectors.classList.add('styled-select')
   this.space.appendChild(spaceForSelectors)
 
   this.table = document.createElement('div')
@@ -24,7 +24,9 @@ ShowPortfolio.prototype.render = function () {
 
 
   this.categorySelector = document.createElement('select')
+  // this.categorySelector.classList.add('styled-select', 'rounded', 'black', 'selectors')
   this.nameSelector = document.createElement('select')
+  // this.nameSelector.classList.add'styled-select', 'rounded', 'black', 'selectors')
 
   spaceForSelectors.appendChild(this.categorySelector)
   spaceForSelectors.appendChild(this.nameSelector)

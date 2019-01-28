@@ -52,11 +52,41 @@ color:  white;
 /*     REUSABLE COMPONENTS       */
 /*-------------------------------*/
 
+/* selector option */
+.styled-select {
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+
+
+
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+
+
+  background-color: #555555;
+
+
+
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: white;
+  height: 29px;
+  padding: 5px; /* If you add too much padding here, the options won’t show in IE */
+  width: 268px;
+}
+
+
+
 .row{
     max-width: 1140px;
     margin: 0 auto;
 }
-
+/* end of selector options */
 
 
 section {
@@ -66,7 +96,7 @@ section {
 
 .pie-chart{
   height: 400px;
-  color: green;
+  color: #55555;
 }
 
 
