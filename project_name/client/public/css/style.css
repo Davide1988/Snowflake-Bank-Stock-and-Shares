@@ -34,7 +34,7 @@ list-style:none;
 float: right;
 }
 
-.navigation ul li a{
+.navigation ul li {
 
 text-decoration:none;
 color:#555555;
@@ -44,7 +44,7 @@ display: block;
 font-weight: bold;
 }
 
-.navigation ul li a:hover{
+.navigation ul li:hover{
 background:#555555;
 color:  white;
 }
