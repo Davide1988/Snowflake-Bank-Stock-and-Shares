@@ -1,0 +1,61 @@
+/*-------------------------------*/
+/*             TABLE             */
+/*-------------------------------*/
+
+table.myTable  {
+    width:100%;
+    border: #dee2e6 1px solid;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+table.myTable, th.myTable, td.myTable {
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+}
+
+.myTable tbody th{
+    border-top: #d8d8d8 1px solid;
+}
+
+.myTable th, td {
+    padding: 15px;
+    text-align: left;
+    font-weight: normal;
+}
+
+table.myTable tr:nth-child(even) {
+    background-color: #eee;
+}
+table.myTable tr:nth-child(odd) {
+   background-color: #fff;
+}
+
+table.myTable tr:nth-child(even):hover {
+    background-color: #d8d8d8;
+}
+table.myTable tr:nth-child(odd):hover {
+   background-color: #d8d8d8;
+}
+
+table.myTable thead th {
+    background-color: #222529;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+table.myTable thead th:hover {
+    background-color: #43484e;
+}
+
+.pager {
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.pager a {
+    color: #222529;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    cursor: pointer;

@@ -27,9 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
  pieGraphView.bindEvent()
 
 
-
-
-
  const space = document.querySelector('#fextry')
  const portfolioButton = document.querySelector('#portfolio')
  const firstView = new SharesFirstView(space, portfolioButton)

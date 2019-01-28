@@ -1,4 +1,5 @@
 const SharesRenderView = require('./shares_render_view.js')
+const ShareTable = require('./share_table.js')
 
 const ShowPortfolio = function(space , shares){
   this.space = space
@@ -13,8 +14,13 @@ ShowPortfolio.prototype.render = function () {
   spaceForSelectors.classList.add('selectors')
   this.space.appendChild(spaceForSelectors)
 
-  this.resultDiv = document.createElement('div')
-  this.space.appendChild(this.resultDiv)
+  this.table = document.createElement('div')
+  this.table.id = "myTable"
+  this.space.appendChild(this.table)
+
+  this.pager = document.createElement('div')
+  this.pager.id = "pager"
+  this.space.appendChild(this.pager)
 
 
   this.categorySelector = document.createElement('select')
@@ -34,13 +40,17 @@ ShowPortfolio.prototype.render = function () {
   this.nameSelector.addEventListener('change', (evt) =>{
     const nameTargeted = evt.target.value
     if (nameTargeted === "all"){
-      const passToRenderAll = new SharesRenderView (this.sharesWithTargetedCategory, this.resultDiv)
-      passToRenderAll.render()
+      this.table.innerHTML = " "
+      this.pager.innerHTML = " "
+      const passToRenderAll = new ShareTable (this.sharesWithTargetedCategory)
+      passToRenderAll.getData()
     }
     else {
     const sharesWithTargetedCategoryAndName = this.shares.filter(share => share.name === nameTargeted)
-    const passToRender = new SharesRenderView(sharesWithTargetedCategoryAndName, this.resultDiv)
-    passToRender.render()
+    this.table.innerHTML = " "
+    this.pager.innerHTML = " "
+    const passToRender = new ShareTable(sharesWithTargetedCategoryAndName)
+    passToRender.getData()
   }
   })
 }
