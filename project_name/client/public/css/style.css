@@ -11,7 +11,7 @@
 html{
 
     color: #000000;
-    font-family: 'lato','Arial','sans-serif';
+    font-family: 'helvetica';
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
@@ -32,10 +32,7 @@ border-bottom: solid 1px #555555;
 display:inline-block;
 list-style:none;
 float: right;
-}
-
-.navigation ul li {
-
+margin-bottom: 900px;
 text-decoration:none;
 color:#555555;
 padding: .8em;
@@ -69,6 +66,7 @@ section {
 
 .pie-chart{
   height: 400px;
+  color: green;
 }
 
 
@@ -82,6 +80,7 @@ section {
 #fextry{
   display: flex;
   justify-content: space-around;
+  font-family: "helvetica"
 }
 
 #graphs{
@@ -102,9 +101,6 @@ li {
   margin-top: 10px;
 }
 
-.selector{
-
-}
 
 
 
