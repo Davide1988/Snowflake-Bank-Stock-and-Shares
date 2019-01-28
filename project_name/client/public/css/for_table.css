@@ -48,8 +48,8 @@ table.myTable thead th:hover {
 }
 
 .pager {
-    display: inline-block;
-    margin-top: 1%;
+    display:  inline-grid;
+    margin-top: 5%;
 }
 
 .pager a {
@@ -59,3 +59,9 @@ table.myTable thead th:hover {
     text-decoration: none;
     border: 1px solid #ddd;
     cursor: pointer;
+
+}
+
+.deleteButton {
+  border-radius: 20px
+}

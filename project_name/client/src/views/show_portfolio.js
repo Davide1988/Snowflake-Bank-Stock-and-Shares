@@ -42,14 +42,14 @@ ShowPortfolio.prototype.render = function () {
     if (nameTargeted === "all"){
       this.table.innerHTML = " "
       this.pager.innerHTML = " "
-      const passToRenderAll = new ShareTable (this.sharesWithTargetedCategory)
+      const passToRenderAll = new ShareTable (this.sharesWithTargetedCategory,this.pager)
       passToRenderAll.getData()
     }
     else {
     const sharesWithTargetedCategoryAndName = this.shares.filter(share => share.name === nameTargeted)
     this.table.innerHTML = " "
     this.pager.innerHTML = " "
-    const passToRender = new ShareTable(sharesWithTargetedCategoryAndName)
+    const passToRender = new ShareTable(sharesWithTargetedCategoryAndName,this.pager)
     passToRender.getData()
   }
   })
