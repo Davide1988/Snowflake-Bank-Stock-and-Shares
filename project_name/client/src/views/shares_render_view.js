@@ -31,10 +31,10 @@ this.space.innerHTML = " "
     date_acquisition.textContent = `Date of acquisition ${share.date_acquisition}`
     ul.appendChild(date_acquisition)
 
-    // const yahoo = document.createElement('a')
-    // yahoo.textContent = `Look at ${share.name} on Yahoo!`
-    // yahoo.href = `https://finance.yahoo.com/quote/${share.name_share}/`
-    // ul.appendChild(yahoo)
+    const yahoo = document.createElement('a')
+    yahoo.textContent = `Look at ${share.name} on Yahoo!`
+    yahoo.href = `https://finance.yahoo.com/quote/${share.name_share}/`
+    ul.appendChild(yahoo)
 
     const deleteButton = document.createElement('button')
     deleteButton.textContent = "Sell Shares"
