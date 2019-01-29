@@ -32,6 +32,7 @@ NewShareRender.prototype.render = function () {
   const buyButton = document.createElement('button')
   buyButton.textContent = "Buy share"
   buyButton.type = "button"
+  buyButton.classList.add('buyBtn')
   buyButton.value = "Buy share"
   this.space.appendChild(buyButton)
 

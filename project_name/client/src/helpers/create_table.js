@@ -59,6 +59,7 @@ CreateTable.prototype.buildTable = function(data) {
         var col = document.createElement("th");
         var btn = document.createElement("button")
         btn.setAttribute("id", "btn")
+        btn.classList.add('sellBtn')
         btn.textContent = 'Sell Share'
         btn.value = item._id
         col.appendChild(btn);

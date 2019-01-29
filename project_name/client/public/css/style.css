@@ -29,6 +29,8 @@ border-bottom: solid 1px #555555;
 
 /* navigation */
 .navigation ul li {
+position: relative;
+top: -80px;
 display:inline-block;
 list-style:none;
 float: right;
@@ -52,75 +54,26 @@ color:  white;
 /*     REUSABLE COMPONENTS       */
 /*-------------------------------*/
 
-/* selector option */
-.styled-select {
-  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-  height: 29px;
-  overflow: hidden;
-  width: 240px;
-
-
-
-
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-
-
-  background-color: #555555;
-
-
-
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  color: white;
-  height: 29px;
-  padding: 5px; /* If you add too much padding here, the options won’t show in IE */
-  width: 268px;
-}
-
-
-
 .row{
     max-width: 1140px;
     margin: 0 auto;
 }
-/* end of selector options */
 
-
-section {
-    padding: 20px 0;
-
-}
-
-.pie-chart{
+.pie-chart {
   height: 400px;
   color: #55555;
 }
 
-
-
-#selector-and-container {
-  background-color: #00688B;
-  length: 50px;
-  width: 200px;
-}
+/*  */
 
 #fextry{
   display: flex;
-  justify-content: space-around;
-  font-family: "helvetica"
+  justify-content: space-between;
+  font-family: "helvetica";
+  margin: 100px;
+
 }
 
-#graphs{
-  min-height: 400px;
-  width: 300px;
-}
-
-#container{
-  font-size: 80%;
-}
 
 ul{
   margin-top: 10px;
@@ -132,77 +85,69 @@ li {
 }
 
 
+ /* selector option */
+
+ .selecters{
+   margin-right: 20px;
+
+ }
 
 
+ .styled-select{
+    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+    height: 29px;
+    overflow:hidden;
+    width: 240px;
+    margin: 30px;
+ }
 
+ .styled-select, select{
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    color: white;
+    height: 29px;
+    padding: px; /* If you add too much padding here, the options won't show in IE */
+    width: 268px;
+ }
 
+ /* -------------------- Rounded Corners */
 
-/* footer section */
+ .rounded {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+ }
+
+ .gray  { background-color: #555555; }
+
+ /* footer section */
 .footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:50px;
-   margin: 10px;
-   display:flex;
-   align-items: center;
-   padding-left: 10px;
-   background:#eceff0;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:50px;
+  margin: 10px;
+  display:flex;
+  align-items: center;
+  padding-left: 10px;
+  background:#eceff0;
 }
 
 .copyright p{
-  word-spacing:1px;
-  color: gray;
-  font-family: 'helvetica', serif;
-  font-size: 12px;
+ word-spacing:1px;
+ color: gray;
+ font-family: 'helvetica', serif;
+ font-size: 12px;
 
 }
-/*  */
 
-
-
-/* taken out css */
-
-/* footer {
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  background-color: #0074D9;
-  background-size: 30px;
-} */
-
-
-/* .main-nav{
-    float: left;
-    list-style: none;
-    margin-top: 20px;
+.buyBtn{
+  font-size: 15px;
+  color: white;
+  background: #60a74e;
+  border-radius: 25px;
+  width: 80px;
+  height: 40px;
+  margin-left: 20px;
 }
-
-.main-nav li{
-    display: inline-block;
-    margin-left: 40px;
-}
-
-.main-nav li a:link,
-.main-nav li a:visited{
-    padding: 8px 0px;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 90%;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2s;
-}
-
-.main-nav li a:hover,
-.main-nav li a:active{
-   border-bottom: 2px solid #e67e22;
-}
- */
-
-
- /* nav{
-     background-color: #0074D9;
-     position: fixed;
-     width: 100%;
- } */

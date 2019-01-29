@@ -9,10 +9,25 @@ const ShowPortfolio = function(space , shares){
 
 
 ShowPortfolio.prototype.render = function () {
-
+  this.space.innerHTML = ' ';
   const spaceForSelectors = document.createElement('div')
-  spaceForSelectors.classList.add('styled-select')
+  spaceForSelectors.classList.add('selecters')
+
+
+  const select1 = document.createElement('div')
+  this.categorySelector = document.createElement('select')
+  select1.classList.add('styled-select','gray', 'rounded')
+  select1.appendChild(this.categorySelector)
+
+  const select2 = document.createElement('div')
+  this.nameSelector = document.createElement('select')
+  select2.classList.add('styled-select','gray', 'rounded')
+  select2.appendChild(this.nameSelector)
+
+  spaceForSelectors.appendChild(select1)
+  spaceForSelectors.appendChild(select2)
   this.space.appendChild(spaceForSelectors)
+
 
   this.table = document.createElement('div')
   this.table.id = "myTable"
@@ -22,14 +37,6 @@ ShowPortfolio.prototype.render = function () {
   this.pager.id = "pager"
   this.space.appendChild(this.pager)
 
-
-  this.categorySelector = document.createElement('select')
-  // this.categorySelector.classList.add('styled-select', 'rounded', 'black', 'selectors')
-  this.nameSelector = document.createElement('select')
-  // this.nameSelector.classList.add'styled-select', 'rounded', 'black', 'selectors')
-
-  spaceForSelectors.appendChild(this.categorySelector)
-  spaceForSelectors.appendChild(this.nameSelector)
 
 
   this.populateCategorySelector(this.shares)

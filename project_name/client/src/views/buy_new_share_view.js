@@ -14,6 +14,7 @@ BuyNewShare.prototype.makeSelector = function () {
   this.space.innerHTML = " "
 
  const spaceForSelectors = document.createElement('div')
+ spaceForSelectors.classList.add('styled-select', 'gray','rounded')
  this.space.appendChild(spaceForSelectors)
 
  this.selector = document.createElement('select')
