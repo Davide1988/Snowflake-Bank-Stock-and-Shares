@@ -198,6 +198,7 @@ li {
 .main-nav li a:active{
    border-bottom: 2px solid #e67e22;
 }
+
  */
 
 
@@ -206,3 +207,8 @@ li {
      position: fixed;
      width: 100%;
  } */
+
+ .graph-div {
+
+   width: 500px;
+ }
