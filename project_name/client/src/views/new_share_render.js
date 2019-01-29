@@ -58,7 +58,8 @@ NewShareRender.prototype.render = function () {
 };
 
 NewShareRender.prototype.renderGraph = function () {
-  const request = new RequestHelper(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.company[0].symbol}&apikey=3QOY0ZZQ72184OFA`);
+  const request = new RequestHelper(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.company[0].symbol}&apikey=5MNUCR7D0PVX0GCY
+`);
   request.get()
     .then((datax) => {
       const dataForGraph = this.elaborateDataForGraph(datax)

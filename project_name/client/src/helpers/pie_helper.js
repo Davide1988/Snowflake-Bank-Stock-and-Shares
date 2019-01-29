@@ -2,8 +2,7 @@
 
 const PieHelper = function (objects){
   this.objects = objects
-  // this.names = names
-  // this.y = y
+
 
 }
 
