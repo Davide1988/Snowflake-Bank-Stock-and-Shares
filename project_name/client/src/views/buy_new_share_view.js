@@ -8,8 +8,6 @@ const BuyNewShare =  function(data, space , divForSelector){
 
 
 
-
-
 BuyNewShare.prototype.makeSelector = function () {
   this.space.innerHTML = " "
 
@@ -44,9 +42,11 @@ BuyNewShare.prototype.makeSelector = function () {
 
 BuyNewShare.prototype.populate = function (data) {
 
-  data.forEach((company) =>{
+    const newOrder = data.map((element) => element.companyName).sort()
+
+    newOrder.forEach((company) =>{
     const companyOption = document.createElement('option')
-    companyOption.textContent = company.companyName
+    companyOption.textContent = company
     this.selector.appendChild(companyOption)
   })
 

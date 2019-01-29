@@ -26,4 +26,5 @@ NewShare.prototype.getData = function () {
 
 };
 
+
 module.exports = NewShare;
