@@ -77,11 +77,16 @@ SharesPieChart.prototype.getSum = function (objects) {
 
 SharesPieChart.prototype.pieChartRender = function () {
 
-  const forChart = document.createElement('div')
-  this.container.appendChild(forChart)
+  this.containerForGrahps = document.createElement('div')
+  this.containerForGrahps.classList.add('container-for-graphs')
+  this.container.appendChild(this.containerForGrahps)
+
+  const pieChart = document.createElement('div')
+  pieChart.classList.add('pie-chart')
+  this.containerForGrahps.appendChild(pieChart)
 
 
-  var myChart = Highcharts.chart(forChart, {
+  var myChart = Highcharts.chart(pieChart, {
         chart: {
             type: 'pie'
         },
@@ -101,7 +106,8 @@ SharesPieChart.prototype.pieChartRender = function () {
 SharesPieChart.prototype.newGraph= function (data) {
 
   const forChartSpiral = document.createElement('div')
-  this.container.appendChild(forChartSpiral)
+  forChartSpiral.classList.add('line-chart')
+  this.containerForGrahps.appendChild(forChartSpiral)
 
 
   const myLineChart = Highcharts.chart(forChartSpiral, {

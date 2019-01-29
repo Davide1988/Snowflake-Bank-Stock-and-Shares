@@ -162,3 +162,18 @@ li {
 .graph-div{
   width: 500px;
 }
+
+
+.container-for-graphs{
+  display: inline-block;
+}
+
+
+.line-chart{
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.pie-chart{
+  margin-left: 100px;
+}
