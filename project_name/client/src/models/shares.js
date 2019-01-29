@@ -10,6 +10,21 @@ const Shares = function(url){
 
 }
 
+Shares.prototype.bindEvent = function () {
+  PubSub.subscribe('liveStock:shares:arrayOfStock', (evt) =>{
+    this.liveStock = evt.detail
+    this.unwrapper(this.liveStock);
+  })
+  PubSub.subscribe('NewShareRender: add to portfolio click', (evt) =>{
+    const newShare = evt.detail
+    this.post(newShare)
+  })
+  PubSub.subscribe('SharesRenderView:Shares:id' , (evt) =>{
+    const shareId = evt.detail
+    this.delete(shareId)
+  })
+};
+
 Shares.prototype.getData= function () {
   const request = new RequestHelper(this.url)
   request.get()
@@ -19,18 +34,7 @@ Shares.prototype.getData= function () {
       const liveShare = new LiveStock
       liveShare.getLiveShare(this.portfolio)
     })
-    PubSub.subscribe('liveStock:shares:arrayOfStock', (evt) =>{
-      this.liveStock = evt.detail
-      this.unwrapper(this.liveStock);
-    })
-    PubSub.subscribe('NewShareRender: add to portfolio click', (evt) =>{
-      const newShare = evt.detail
-      this.post(newShare)
-    })
-    PubSub.subscribe('SharesRenderView:Shares:id' , (evt) =>{
-      const shareId = evt.detail
-      this.delete(shareId)
-    })
+
 
 };
 

@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --------- Html Container -------
     const container = document.querySelector('#container');
 
-    // -------  View The Index Page -------  
+    // -------  View The Index Page -------
     const indexView = new IndexView(container);
     indexView.bindEvent();
 
-    // -------  View Portfolio Linke -------  
+    // -------  View Portfolio Linke -------
     const portfolioView = new PortfolioView(container);
     portfolioView.bindEvent();
 
-    // -------  View Buy a new share Linke -------  
+    // -------  View Buy a new share Linke -------
     const buyNewShare = new BuyNewShare(container);
     buyNewShare.bindEvent();
 
@@ -27,10 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const newShare = new NewShare(urlForNewShare)
     newShare.getStockData()
 
-
-
     const url = 'http://localhost:3000/api/shares'
     const shares = new Shares(url)
+    shares.bindEvent();
     shares.getData();
 
     const homeClick = document.querySelector('#home');
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // shares.getData();
         // indexView.bindEvent();
         window.location.reload();
-       
+
     })
 
 

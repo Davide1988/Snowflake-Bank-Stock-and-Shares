@@ -23,19 +23,7 @@ const SharesTable = function(data,table){
                 ]
 
             });
-        //     this.data.forEach ((element) => {
-        //       const deleteButton = document.createElement('button')
-        //         deleteButton.textContent = "Sell Shares"
-        //         deleteButton.type = "button"
-        //         deleteButton.value = element._id
-        //         deleteButton.classList.add('deleteButton')
-        //         this.table.appendChild(deleteButton)
-        //
-        //         deleteButton.addEventListener('click', (evt) => {
-        //           this.table.innerHTML = "Shares sold"
-        //           PubSub.publish('SharesRenderView:Shares:id', evt.target.value)
-        //     })
-        // })
+  
       }
 
 

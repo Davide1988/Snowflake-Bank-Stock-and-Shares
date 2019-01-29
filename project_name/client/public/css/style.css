@@ -71,7 +71,7 @@ color:  white;
   justify-content: space-between;
   font-family: "helvetica";
   margin: 100px;
-  
+
 }
 
 
@@ -100,7 +100,7 @@ li {
     width: 240px;
     margin: 30px;
  }
- 
+
  .styled-select, select{
     background: transparent;
     border: none;
@@ -110,9 +110,9 @@ li {
     padding: px; /* If you add too much padding here, the options won't show in IE */
     width: 268px;
  }
- 
+
  /* -------------------- Rounded Corners */
- 
+
  .rounded {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -151,4 +151,3 @@ li {
   height: 40px;
   margin-left: 20px;
 }
-
