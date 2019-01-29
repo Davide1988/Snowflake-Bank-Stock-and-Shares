@@ -1,4 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js')
+const RequestHelper = require('../helpers/request_helper.js')
+const Highcharts = require('highcharts')
 
 const NewShareRender = function(company, space){
   this.company = company
@@ -37,7 +39,10 @@ NewShareRender.prototype.render = function () {
   this.space.appendChild(buyButton)
 
   buyButton.addEventListener('click', (evt) =>{
-    this.space.innerHTML = `You bought ${this.inputShares.value} shares of ${this.company[0].companyName} for a value of  $ ${this.company[0].previousClose * this.inputShares.value}`
+
+
+    const sumOfSharesBought = this.company[0].previousClose * this.inputShares.value
+    this.space.innerHTML = `You bought ${this.inputShares.value} shares of ${this.company[0].companyName} for a value of  $ ${sumOfSharesBought.toFixed(2)}`
 
     evt.preventDefault()
     companyData = {
@@ -49,6 +54,52 @@ NewShareRender.prototype.render = function () {
     }
     PubSub.publish('NewShareRender: add to portfolio click', companyData);
   })
+  this.renderGraph()
+};
+
+NewShareRender.prototype.renderGraph = function () {
+  const request = new RequestHelper(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.company[0].symbol}&apikey=3QOY0ZZQ72184OFA`);
+  request.get()
+    .then((datax) => {
+      const dataForGraph = this.elaborateDataForGraph(datax)
+      this.data = dataForGraph
+    })
+    .then(() => {
+
+      this.div = document.createElement('div')
+      this.div.classList.add('graph-div')
+      this.space.appendChild(this.div)
+
+
+      const myLineChart = Highcharts.chart(this.div, {
+
+        chart: {
+             type: 'line',
+             renderTo: this.div
+         },
+         title: {
+             text: 'Stock Price Variance'
+         },
+         series: [{ name: `${this.company[0].companyName}`,
+                   data: this.data }]
+         });
+      })
+}
+
+
+
+NewShareRender.prototype.elaborateDataForGraph = function (history) {
+  console.log(history);
+  this.strange_data = Object.keys(history["Time Series (Daily)"]).map(function(key){
+  return history["Time Series (Daily)"][key];
+})
+  const closingValues = this.strange_data.map((element) => element["4. close"])
+
+
+  const inNumbers = closingValues.map(function (x) {
+     return parseFloat(x)
+   })
+   return inNumbers
 };
 
 

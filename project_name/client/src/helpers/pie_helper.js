@@ -1,21 +1,24 @@
 
 
-const PieHelper = function (names , y){
-  this.names = names
-  this.y = y
+const PieHelper = function (objects){
+  this.objects = objects
+  // this.names = names
+  // this.y = y
 
 }
 
 PieHelper.prototype.getData = function () {
-  let dataArray = []
-  for ( i = 0; i < this.names.length; i++){
-
-    data = {
-      name: this.names[i],
-      y: this.y[i]
-    }
-    dataArray.push(data)
-  }
+  // let dataArray = []
+  const dataArray = this.objects.map((x) => x)
+  // for ( i = 0; i < this.names.length; i++){
+  //
+  //   data = {
+  //     name: this.names[i],
+  //     y: this.y[i]
+  //   }
+  //   dataArray.push(data)
+  // }
+  console.log(dataArray);
   return dataArray
 };
 

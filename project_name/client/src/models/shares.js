@@ -10,6 +10,25 @@ const Shares = function(url){
 
 }
 
+Shares.prototype.bindEvent = function () {
+  PubSub.subscribe('liveStock:shares:arrayOfStock', (evt) =>{
+    this.liveStock = evt.detail
+    this.dataForGraph = this.buildDataForSpiralGraph(this.liveStock)
+    PubSub.publish('shara:sharePieView:dataForSpiralGraph', this.dataForGraph);
+    this.unwrapper(this.liveStock);
+
+  })
+  PubSub.subscribe('NewShareRender: add to portfolio click', (evt) =>{
+    const newShare = evt.detail
+    this.post(newShare)
+  })
+  PubSub.subscribe('SharesRenderView:Shares:id' , (evt) =>{
+    const shareId = evt.detail
+    this.delete(shareId)
+  })
+
+};
+
 Shares.prototype.getData= function () {
   const request = new RequestHelper(this.url)
   request.get()
@@ -19,18 +38,7 @@ Shares.prototype.getData= function () {
       const liveShare = new LiveStock
       liveShare.getLiveShare(this.portfolio)
     })
-    PubSub.subscribe('liveStock:shares:arrayOfStock', (evt) =>{
-      this.liveStock = evt.detail
-      this.unwrapper(this.liveStock);
-    })
-    PubSub.subscribe('NewShareRender: add to portfolio click', (evt) =>{
-      const newShare = evt.detail
-      this.post(newShare)
-    })
-    PubSub.subscribe('SharesRenderView:Shares:id' , (evt) =>{
-      const shareId = evt.detail
-      this.delete(shareId)
-    })
+
 
 };
 
@@ -41,8 +49,8 @@ Shares.prototype.unwrapper= function () {
     this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
     this.portfolio[i].number_of_shares;
     shareWithPrice = {
-      name_of_share : this.portfolio[i].name_share,
-      value : this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
+      name: this.portfolio[i].name_share,
+      y: this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
     }
     shareWithPriceArray.push(shareWithPrice)
   }
@@ -60,7 +68,6 @@ Shares.prototype.getYesterdayDate = function () {
 
     if (dd < 10) {   dd = '0' + dd; } if (mm < 10) {   mm = '0' + mm; }
 
-
     return yesterdayDate =  yyyy + "-" + mm + "-" + dd
 
   }
@@ -71,7 +78,6 @@ Shares.prototype.getYesterdayDate = function () {
 
   if (dd < 10) {   dd = '0' + dd; } if (mm < 10) {   mm = '0' + mm; }
 
-
   return yesterdayDate =  yyyy + "-" + mm + "-" + dd
 }
 else {
@@ -80,7 +86,6 @@ else {
   const yyyy = today.getFullYear();
 
   if (dd < 10) {   dd = '0' + dd; } if (mm < 10) {   mm = '0' + mm; }
-
 
   return yesterdayDate =  yyyy + "-" + mm + "-" + dd
 }
@@ -102,6 +107,38 @@ Shares.prototype.delete = function (id) {
     })
 };
 
+Shares.prototype.buildDataForSpiralGraph = function (data) {
 
+  var finalData = []
+
+  this.strange_data = data.map(element => {
+    const keys = Object.keys(element["Time Series (Daily)"])
+    return keys.map(key => parseFloat(element["Time Series (Daily)"][key]['4. close']))
+})
+
+
+for (i = 0; i < data.length; i++){
+
+  data[i]["Meta Data"]['2. Symbol'];
+  this.strange_data[i];
+
+  this.tempData = {
+    name: data[i]["Meta Data"]['2. Symbol'],
+    data: this.strange_data[i]
+
+  }
+   finalData.push(this.tempData)
+ }
+ return finalData;
+}
+
+//
+// for (i = 0; i < this.liveStock.length; i++){
+//   this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
+//   this.portfolio[i].number_of_shares;
+//   shareWithPrice = {
+//     name: this.portfolio[i].name_share,
+//     y: this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
+//   }
 
 module.exports = Shares;
