@@ -115,8 +115,6 @@ SharesPieChart.prototype.newGraph= function (data) {
      },
      series: this.dataForGraph
      });
-
-console.log(this.dataForGraph);
 };
 
 

@@ -109,38 +109,25 @@ Shares.prototype.delete = function (id) {
 
 Shares.prototype.buildDataForSpiralGraph = function (data) {
 
-  let finalData = []
-  this.finalDataNumber = []
+  var finalData = []
 
   this.strange_data = data.map(element => {
     const keys = Object.keys(element["Time Series (Daily)"])
-    return keys.map(key => element["Time Series (Daily)"][key]['4. close'])
+    return keys.map(key => parseFloat(element["Time Series (Daily)"][key]['4. close']))
 })
-
-console.log(this.strange_data);
-
-for (var i = 0; i < this.strange_data.length; i++) {
-  
-  this.strange_data[i]
-
-  this.finalDataNumber.push(parseFloat(this.strange_data[i]))
-}
-
-
 
 
 for (i = 0; i < data.length; i++){
 
-
   data[i]["Meta Data"]['2. Symbol'];
-  this.finalDataNumber[i];
+  this.strange_data[i];
 
   this.tempData = {
     name: data[i]["Meta Data"]['2. Symbol'],
-    data: this.finalDataNumber[i]
+    data: this.strange_data[i]
 
   }
-  finalData.push(this.tempData)
+   finalData.push(this.tempData)
  }
  return finalData;
 }
