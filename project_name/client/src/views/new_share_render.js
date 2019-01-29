@@ -88,7 +88,7 @@ NewShareRender.prototype.renderGraph = function () {
 
 
 NewShareRender.prototype.elaborateDataForGraph = function (history) {
-
+  console.log(history);
   this.strange_data = Object.keys(history["Time Series (Daily)"]).map(function(key){
   return history["Time Series (Daily)"][key];
 })

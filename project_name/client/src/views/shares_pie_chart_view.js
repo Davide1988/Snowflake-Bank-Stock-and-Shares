@@ -17,7 +17,6 @@ const SharesPieChart = function(container, button ){
 SharesPieChart.prototype.bindEvent = function () {
   PubSub.subscribe('shares:shares_pie_chart:object', (evt) =>{
     this.objects = evt.detail
-    console.log(this.objects);
     // const names = this.getNames(this.objects);
     const sum = this.getSum(this.objects)
     // const y = this.getY(this.objects, sum);
@@ -26,6 +25,9 @@ SharesPieChart.prototype.bindEvent = function () {
     this.renderInfo(sum)
     this.pieChartRender()
     this.newGraph()
+  })
+  PubSub.subscribe('shara:sharePieView:dataForSpiralGraph', (evt) =>{
+    this.dataForGraph = evt.detail
   })
 }
 
@@ -102,7 +104,19 @@ SharesPieChart.prototype.newGraph= function (data) {
   this.container.appendChild(forChartSpiral)
 
 
+  const myLineChart = Highcharts.chart(forChartSpiral, {
 
+    chart: {
+         type: 'line',
+         renderTo: forChartSpiral
+     },
+     title: {
+         text: 'Stock Price Variance'
+     },
+     series: this.dataForGraph
+     });
+
+console.log(this.dataForGraph);
 };
 
 
