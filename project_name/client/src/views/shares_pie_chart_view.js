@@ -17,13 +17,15 @@ const SharesPieChart = function(container, button ){
 SharesPieChart.prototype.bindEvent = function () {
   PubSub.subscribe('shares:shares_pie_chart:object', (evt) =>{
     this.objects = evt.detail
-    const names = this.getNames(this.objects);
+    console.log(this.objects);
+    // const names = this.getNames(this.objects);
     const sum = this.getSum(this.objects)
-    const y = this.getY(this.objects, sum);
-    const pieHelper = new PieHelper(names , y)
-    const data = pieHelper.getData()
+    // const y = this.getY(this.objects, sum);
+    // const pieHelper = new PieHelper(this.objects)
+    // const data = pieHelper.getData()
     this.renderInfo(sum)
-    this.pieChartRender(data)
+    this.pieChartRender()
+    this.newGraph()
   })
 }
 
@@ -57,21 +59,21 @@ SharesPieChart.prototype.renderInfo= function (sum) {
 
 };
 
-SharesPieChart.prototype.getNames = function (objects) {
-  return objects.map((object) => object.name_of_share)
-};
+// SharesPieChart.prototype.getNames = function (objects) {
+//   return objects.map((object) => object.name_of_share)
+// };
 
 SharesPieChart.prototype.getSum = function (objects) {
   return objects.reduce((total, object) =>{
-    return total += object.value
+    return total += object.y
   }, 0)
 };
 
-SharesPieChart.prototype.getY = function (objects, sum) {
-  return objects.map((object) => (object.value / sum ) * 100)
-};
+// SharesPieChart.prototype.getY = function (objects, sum) {
+//   return objects.map((object) => (object.value / sum ) * 100)
+// };
 
-SharesPieChart.prototype.pieChartRender = function (data) {
+SharesPieChart.prototype.pieChartRender = function () {
 
   const forChart = document.createElement('div')
   this.container.appendChild(forChart)
@@ -89,10 +91,19 @@ SharesPieChart.prototype.pieChartRender = function (data) {
         },
         series: [{
             name: 'share',
-            data: data
+            data: this.objects
       } ]
     });
 }
+
+SharesPieChart.prototype.newGraph= function (data) {
+
+  const forChartSpiral = document.createElement('div')
+  this.container.appendChild(forChartSpiral)
+
+
+
+};
 
 
 

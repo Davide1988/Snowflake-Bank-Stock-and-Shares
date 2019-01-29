@@ -45,8 +45,8 @@ Shares.prototype.unwrapper= function () {
     this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
     this.portfolio[i].number_of_shares;
     shareWithPrice = {
-      name_of_share : this.portfolio[i].name_share,
-      value : this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
+      name: this.portfolio[i].name_share,
+      y: this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
     }
     shareWithPriceArray.push(shareWithPrice)
   }
