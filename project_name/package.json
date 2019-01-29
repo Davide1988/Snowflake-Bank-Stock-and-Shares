@@ -16,6 +16,7 @@
     "highcharts": "^7.0.2",
     "mongodb": "^3.1.13",
     "nodemon": "^1.18.9",
+    "stockchart": "^0.3.0",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   }

@@ -9,7 +9,7 @@ const LiveStock = function(){
 
 LiveStock.prototype.getLiveShare = function (shares) {
   this.links = shares.map((share) =>{
-    const link = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${share.name_share}&apikey=5MNUCR7D0PVX0GCY`
+    const link = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${share.name_share}&apikey=3QOY0ZZQ72184OFA`
     return link
   });
   this.getJson(this.links)

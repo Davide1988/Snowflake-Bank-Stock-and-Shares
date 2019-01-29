@@ -3,9 +3,9 @@ const Highcharts = require('highcharts')
 const PieHelper = require('../helpers/pie_helper.js')
 
 
-const SharesPieChart = function(container, home ){
+const SharesPieChart = function(container, button ){
   this.container = container
-  this.home = home
+  this.button = button
 
 }
 
@@ -24,7 +24,6 @@ SharesPieChart.prototype.bindEvent = function () {
     const data = pieHelper.getData()
     this.renderInfo(sum)
     this.pieChartRender(data)
-
   })
 }
 
