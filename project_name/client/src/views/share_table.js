@@ -1,6 +1,4 @@
 const CreateTable = require('../helpers/create_table.js')
-const RequestHelper = require('../helpers/request_helper')
-const PubSub = require('../helpers/pub_sub.js')
 
 const SharesTable = function(data,table){
     this.data = data;

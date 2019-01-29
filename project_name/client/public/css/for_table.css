@@ -2,6 +2,7 @@
 /*             TABLE             */
 /*-------------------------------*/
 
+
 table.myTable  {
     width:100%;
     border: #dee2e6 1px solid;
@@ -30,14 +31,14 @@ table.myTable tr:nth-child(odd) {
 }
 
 table.myTable tr:nth-child(even):hover {
-    background-color: #d8d8d8;
+    background-color: #eceff0;
 }
 table.myTable tr:nth-child(odd):hover {
-   background-color: #d8d8d8;
+   background-color: #eceff0;
 }
 
 table.myTable thead th {
-    background-color: #222529;
+    background-color: #555555;
     color: white;
     text-transform: uppercase;
     cursor: pointer;
@@ -65,3 +66,57 @@ table.myTable thead th:hover {
 .deleteButton {
   border-radius: 20px
 }
+
+/*-------------------------------*/
+/*           button              */
+/*-------------------------------*/
+
+/* button {
+    cursor: pointer;
+    outline: none;
+      &.outline {
+          position: relative;
+          z-index: 3;
+          background: transparent;
+          color: #1172c4;
+          font-size: 14px;
+          border-color: #1172c4;
+          border-style: solid;
+          border-width: 2px;
+          border-radius: 22px;
+          padding: 10px 40px;
+          text-transform: uppercase;
+          transition: all 0.2s linear;
+          a {
+              text-decoration: none;
+          }
+      }
+      &.outline:hover {
+          color: white;
+          background: #1172c4;
+          border-color: white;
+          transition: all 0.2s linear;
+      }
+      &.outline:active {
+          border-radius: 22px;
+      }
+      &.white-blue {
+          font-weight: 700;
+          color: #00aeef;
+          border-color: white;
+          background: white;
+      }
+      &.white-blue:hover {
+          color: white;
+          background: #00aeef;
+          border-color: white;
+      } */
+    .sellBtn{
+    font-size: 15px;
+    color: white;
+    background: #d35757;
+    border-radius: 25px;
+    width: 80px;
+    height: 40px;
+}
+    

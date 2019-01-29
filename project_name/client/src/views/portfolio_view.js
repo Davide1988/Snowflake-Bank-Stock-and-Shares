@@ -1,42 +1,61 @@
-const SharesRenderView = require('./shares_render_view.js')
 const ShareTable = require('./share_table.js')
+const PubSub = require('../helpers/pub_sub')
 
-const ShowPortfolio = function(space , shares){
-  this.space = space
-  this.shares = shares
+
+const PortfolioView = function(container){
+  this.container = container
+  
 
 }
 
+PortfolioView.prototype.bindEvent = function () {
+  PubSub.subscribe('shares:IndexView:sharesData', (evt) =>{
+    const portfolioClick = document.querySelector('#portfolio');
+    portfolioClick.addEventListener('click', (event) => {
+    event.preventDefault();
+    this.shares = evt.detail
+    this.render(this.shares);
+ });
+    
+    
+    })
 
-ShowPortfolio.prototype.render = function () {
+}
 
+PortfolioView.prototype.render = function (data) {
+  container.innerHTML = ' ';
   const spaceForSelectors = document.createElement('div')
-  spaceForSelectors.classList.add('styled-select')
-  this.space.appendChild(spaceForSelectors)
+  spaceForSelectors.classList.add('selecters')
+
+
+  const select1 = document.createElement('div')
+  this.categorySelector = document.createElement('select')
+  select1.classList.add('styled-select','gray', 'rounded')
+  select1.appendChild(this.categorySelector)
+
+  const select2 = document.createElement('div')
+  this.nameSelector = document.createElement('select')
+  select2.classList.add('styled-select','gray', 'rounded')
+  select2.appendChild(this.nameSelector)
+
+  spaceForSelectors.appendChild(select1)
+  spaceForSelectors.appendChild(select2)
+  this.container.appendChild(spaceForSelectors)
+  
 
   this.table = document.createElement('div')
   this.table.id = "myTable"
-  this.space.appendChild(this.table)
+  this.container.appendChild(this.table)
 
   this.pager = document.createElement('div')
   this.pager.id = "pager"
-  this.space.appendChild(this.pager)
+  this.container.appendChild(this.pager)
 
-
-  this.categorySelector = document.createElement('select')
-  // this.categorySelector.classList.add('styled-select', 'rounded', 'black', 'selectors')
-  this.nameSelector = document.createElement('select')
-  // this.nameSelector.classList.add'styled-select', 'rounded', 'black', 'selectors')
-
-  spaceForSelectors.appendChild(this.categorySelector)
-  spaceForSelectors.appendChild(this.nameSelector)
-
-
-  this.populateCategorySelector(this.shares)
+  this.populateCategorySelector(data)
 
   this.categorySelector.addEventListener('change', (evt) => {
     const categoryTargeted = evt.target.value
-    this.sharesWithTargetedCategory = this.shares.filter(share => share.category === categoryTargeted)
+    this.sharesWithTargetedCategory = data.filter(share => share.category === categoryTargeted)
     this.populateNameSelector(this.sharesWithTargetedCategory)
   })
   this.nameSelector.addEventListener('change', (evt) =>{
@@ -48,7 +67,7 @@ ShowPortfolio.prototype.render = function () {
       passToRenderAll.getData()
     }
     else {
-    const sharesWithTargetedCategoryAndName = this.shares.filter(share => share.name === nameTargeted)
+    const sharesWithTargetedCategoryAndName = data.filter(share => share.name === nameTargeted)
     this.table.innerHTML = " "
     this.pager.innerHTML = " "
     const passToRender = new ShareTable(sharesWithTargetedCategoryAndName,this.pager)
@@ -58,7 +77,7 @@ ShowPortfolio.prototype.render = function () {
 }
 
 
-  ShowPortfolio.prototype.populateCategorySelector = function (shares) {
+PortfolioView.prototype.populateCategorySelector = function (shares) {
 
   const uniqueSharesCategory = [...new Set(shares.map(share=> share.category))];
 
@@ -82,7 +101,7 @@ ShowPortfolio.prototype.render = function () {
   })
   };
 
-  ShowPortfolio.prototype.populateNameSelector = function (shares) {
+  PortfolioView.prototype.populateNameSelector = function (shares) {
 
   const uniqueNameCategory = [...new Set(shares.map(share=> share.name))];
 
@@ -110,4 +129,4 @@ ShowPortfolio.prototype.render = function () {
 
 
 
-module.exports = ShowPortfolio
+module.exports = PortfolioView;

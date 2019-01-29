@@ -14,7 +14,7 @@ Shares.prototype.getData= function () {
   const request = new RequestHelper(this.url)
   request.get()
     .then((portfolio) => {
-      PubSub.publish('shares:sharesFirstView:sharesData', portfolio);
+      PubSub.publish('shares:IndexView:sharesData', portfolio);
       this.portfolio = portfolio
       const liveShare = new LiveStock
       liveShare.getLiveShare(this.portfolio)
@@ -90,7 +90,7 @@ Shares.prototype.post = function (share) {
   const request = new RequestHelper(this.url)
   request.post(share)
     .then((newList) =>{
-      PubSub.publish('shares:sharesFirstView:sharesData', newList)
+      PubSub.publish('shares:IndexView:sharesData', newList)
     })
 };
 
@@ -98,7 +98,7 @@ Shares.prototype.delete = function (id) {
   const request = new RequestHelper(this.url)
   request.delete(id)
     .then((newList) =>{
-      PubSub.publish('shares:sharesFirstView:sharesData', newList)
+      PubSub.publish('shares:IndexView:sharesData', newList)
     })
 };
 

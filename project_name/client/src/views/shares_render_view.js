@@ -41,8 +41,7 @@ this.space.innerHTML = " "
     deleteButton.type = "button"
     deleteButton.value = share._id
     this.space.appendChild(deleteButton)
-    console.log(deleteButton);
-
+    
     deleteButton.addEventListener('click', (evt) => {
       this.space.innerHTML = "Shares sold"
       PubSub.publish('SharesRenderView:Shares:id', evt.target.value)
