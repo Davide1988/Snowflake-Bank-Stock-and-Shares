@@ -37,7 +37,7 @@ top: -80px;
 display:inline-block;
 list-style:none;
 float: right;
-margin-bottom: 900px;
+/* margin-bottom: 900px; */
 text-decoration:none;
 color:#555555;
 padding: .8em;
@@ -70,11 +70,11 @@ color:  white;
 /*  */
 
 #fextry{
-  display: flex;
-  justify-content: space-between;
+  min-height: 800px;
+  /* display: flex;
+  justify-content: space-between; */
   font-family: "helvetica";
-  margin: 100px;
-
+  /* margin: 100px; */
 }
 
 
@@ -164,16 +164,24 @@ li {
 }
 
 
+
+
+
+
+.client-info{
+  background-color: red;
+}
+
 .container-for-graphs{
-  display: inline-block;
+  display: flex;
+  justify-content: space-around;
 }
 
 
 .line-chart{
-  margin-top: 20px;
-  margin-left: 100px;
+  /* align-items: flex-end; */
 }
 
 .pie-chart{
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }

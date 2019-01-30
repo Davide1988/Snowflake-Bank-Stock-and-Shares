@@ -6,13 +6,7 @@ const PieHelper = require('../helpers/pie_helper.js')
 const SharesPieChart = function(container, button ){
   this.container = container
   this.button = button
-
 }
-
-
-
-
-
 
 SharesPieChart.prototype.bindEvent = function () {
   PubSub.subscribe('shares:shares_pie_chart:object', (evt) =>{
@@ -33,17 +27,15 @@ SharesPieChart.prototype.bindEvent = function () {
 
 SharesPieChart.prototype.renderInfo= function (sum) {
 
-
-
   const infoDiv = document.createElement('div')
-  infoDiv.classList.add('pie-chart')
+  infoDiv.classList.add('client-info')
   this.container.appendChild(infoDiv)
 
   const name = document.createElement('h3')
   name.textContent = `Geoffrey Butterworth  `
   infoDiv.appendChild(name)
 
-  const account = document.createElement('h3')
+  const account = document.createElement('h4')
   account.textContent = `MIMNDSC24383578`
   infoDiv.appendChild(account)
 
@@ -90,13 +82,13 @@ SharesPieChart.prototype.pieChartRender = function () {
             type: 'pie'
         },
         title: {
-            text: 'Your portfolio shares'
+            text: 'Portfolio Split By Company'
         },
         tooltip:{
           pointFormat :'{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         series: [{
-            name: 'share',
+            name: '% of total',
             data: this.objects
       } ]
     });
@@ -108,7 +100,6 @@ SharesPieChart.prototype.newGraph= function (data) {
   forChartSpiral.classList.add('line-chart')
   this.containerForGrahps.appendChild(forChartSpiral)
 
-
   const myLineChart = Highcharts.chart(forChartSpiral, {
 
     chart: {
@@ -116,15 +107,10 @@ SharesPieChart.prototype.newGraph= function (data) {
          renderTo: forChartSpiral
      },
      title: {
-         text: 'Stock Price Variance'
+         text: '100 Day Price History'
      },
      series: this.dataForGraph
      });
 };
-
-
-
-
-
 
 module.exports = SharesPieChart;

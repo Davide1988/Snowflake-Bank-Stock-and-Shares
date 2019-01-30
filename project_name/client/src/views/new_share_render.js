@@ -79,7 +79,7 @@ NewShareRender.prototype.renderGraph = function () {
              renderTo: this.div
          },
          title: {
-             text: 'Stock Price Variance'
+             text: '100 Day Price History'
          },
          series: [{ name: `${this.company[0].companyName}`,
                    data: this.data }]
