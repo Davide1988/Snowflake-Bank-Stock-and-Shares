@@ -81,6 +81,11 @@ NewShareRender.prototype.renderGraph = function () {
          title: {
              text: '100 Day Price History'
          },
+         xAxis: {title: {text: null},
+                labels: {enabled: false}}
+          ,
+          yAxis: {title: {text: 'Share Price in Cents'}}
+          ,
          credits: {
              enabled: false
            },
