@@ -4,7 +4,9 @@
 
 
 table.myTable  {
-    width:100%;
+    width:90%;
+    margin-top: 20px;
+    margin-left: 5%;
     border: #dee2e6 1px solid;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
@@ -119,4 +121,3 @@ table.myTable thead th:hover {
     width: 80px;
     height: 40px;
 }
-    
