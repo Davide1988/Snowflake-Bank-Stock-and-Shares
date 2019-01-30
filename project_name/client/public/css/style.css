@@ -159,20 +159,18 @@ li {
   margin-top: 10px;
 }
 
-.graph-div{
-  
-  width: 500px;
-}
 
+/*  */
 .client-info{
   display: flex;
-  align-items: center;
+  align-items: left;
+  padding-left: 10%
   flex-flow: column;
   justify-content: space-around;
   margin: 0;
-  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 80px;
   min-height: 100px
-
 }
 
 .container-for-graphs{
@@ -187,4 +185,15 @@ li {
 
 .pie-chart{
   /* margin-left: 100px; */
+}
+
+.selected-new-share-details {
+
+}
+
+.company-details{
+
+}
+
+.graph-div{
 }

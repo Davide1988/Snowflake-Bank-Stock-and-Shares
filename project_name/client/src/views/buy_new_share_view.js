@@ -28,6 +28,7 @@ BuyNewShare.prototype.makeSelector = function () {
   this.populate(this.data)
 
   this.result = document.createElement('div')
+  this.result.classList.add('selected-new-share-details')
   this.space.appendChild(this.result)
 
   this.selector.addEventListener('change', (evt) =>{

@@ -10,9 +10,8 @@ const NewShareRender = function(company, space){
 
 NewShareRender.prototype.render = function () {
 
-
-
   const companyUl = document.createElement('ul')
+  companyUl.classList.add('company-details')
   this.space.appendChild(companyUl)
 
   const companyName = document.createElement('li')
@@ -58,7 +57,7 @@ NewShareRender.prototype.render = function () {
 };
 
 NewShareRender.prototype.renderGraph = function () {
-  const request = new RequestHelper(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.company[0].symbol}&apikey=5MNUCR7D0PVX0GCY
+  const request = new RequestHelper(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.company[0].symbol}&apikey=JF16KZO2OG6TFLTG
 `);
   request.get()
     .then((datax) => {
