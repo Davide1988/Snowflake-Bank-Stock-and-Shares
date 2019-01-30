@@ -109,6 +109,9 @@ SharesPieChart.prototype.newGraph= function (data) {
      title: {
          text: '100 Day Price History'
      },
+     credits: {
+       enabled: false
+     },
      series: this.dataForGraph
      });
 };
