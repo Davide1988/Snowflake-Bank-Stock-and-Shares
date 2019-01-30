@@ -40,11 +40,11 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   this.container.appendChild(infoDiv)
 
   const name = document.createElement('h3')
-  greetings.textContent = `Geoffrey Butterworth  `
+  name.textContent = `Geoffrey Butterworth  `
   infoDiv.appendChild(name)
 
   const account = document.createElement('h3')
-  greetings.textContent = `MIMNDSC24383578`
+  account.textContent = `MIMNDSC24383578`
   infoDiv.appendChild(account)
 
   const ul = document.createElement('ul')
