@@ -1,6 +1,6 @@
 const RequestHelperLiveStock = function(urls){
   this.urls = urls
-  // this.promises = []
+
 }
 
 

@@ -10,18 +10,10 @@ const SharesPieChart = function(container, button ){
 }
 
 
-
-
-
-
 SharesPieChart.prototype.bindEvent = function () {
   PubSub.subscribe('shares:shares_pie_chart:object', (evt) =>{
     this.objects = evt.detail
-    // const names = this.getNames(this.objects);
     const sum = this.getSum(this.objects)
-    // const y = this.getY(this.objects, sum);
-    // const pieHelper = new PieHelper(this.objects)
-    // const data = pieHelper.getData()
     this.renderInfo(sum)
     this.pieChartRender()
     this.newGraph()
@@ -56,24 +48,13 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   totalMoney.textContent = `This is the total amount for your shares : $${sum.toFixed(2)}`
   ul.appendChild(totalMoney)
 
-
-
-
 };
-
-// SharesPieChart.prototype.getNames = function (objects) {
-//   return objects.map((object) => object.name_of_share)
-// };
 
 SharesPieChart.prototype.getSum = function (objects) {
   return objects.reduce((total, object) =>{
     return total += object.y
   }, 0)
 };
-
-// SharesPieChart.prototype.getY = function (objects, sum) {
-//   return objects.map((object) => (object.value / sum ) * 100)
-// };
 
 SharesPieChart.prototype.pieChartRender = function () {
 
@@ -122,10 +103,6 @@ SharesPieChart.prototype.newGraph= function (data) {
      series: this.dataForGraph
      });
 };
-
-
-
-
 
 
 module.exports = SharesPieChart;

@@ -43,7 +43,6 @@ BuyNewShare.prototype.makeSelector = function () {
 BuyNewShare.prototype.populate = function (data) {
 
     const newOrder = data.map((element) => element.companyName).sort()
-
     newOrder.forEach((company) =>{
     const companyOption = document.createElement('option')
     companyOption.textContent = company
