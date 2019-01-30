@@ -40,24 +40,23 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   this.container.appendChild(infoDiv)
 
   const greetings = document.createElement('h3')
-  greetings.textContent = `Hi Bob , here a short view of your investments :  `
+  greetings.textContent = `Geoffrey Butterworth  `
   infoDiv.appendChild(greetings)
 
+  const greetings = document.createElement('h3')
+  greetings.textContent = `MIMNDSC24383578`
+  infoDiv.appendChild(greetings)
 
   const ul = document.createElement('ul')
   infoDiv.appendChild(ul)
 
-
   const howManyInvestment = document.createElement('li')
-  howManyInvestment.textContent = `You have invested in ${this.objects.length} shares`
+  howManyInvestment.textContent = `Number of items in your portfolio: ${this.objects.length}`
   ul.appendChild(howManyInvestment)
 
   const totalMoney = document.createElement('li')
-  totalMoney.textContent = `This is the total amount for your shares : $${sum.toFixed(2)}`
+  totalMoney.textContent = `Total value of your shares: $${sum.toFixed(2)}`
   ul.appendChild(totalMoney)
-
-
-
 
 };
 
