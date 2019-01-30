@@ -81,6 +81,9 @@ NewShareRender.prototype.renderGraph = function () {
          title: {
              text: '100 Day Price History'
          },
+         credits: {
+             enabled: false
+           },
          series: [{ name: `${this.company[0].companyName}`,
                    data: this.data }]
          });
