@@ -39,13 +39,13 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   infoDiv.classList.add('pie-chart')
   this.container.appendChild(infoDiv)
 
-  const greetings = document.createElement('h3')
+  const name = document.createElement('h3')
   greetings.textContent = `Geoffrey Butterworth  `
-  infoDiv.appendChild(greetings)
+  infoDiv.appendChild(name)
 
-  const greetings = document.createElement('h3')
+  const account = document.createElement('h3')
   greetings.textContent = `MIMNDSC24383578`
-  infoDiv.appendChild(greetings)
+  infoDiv.appendChild(account)
 
   const ul = document.createElement('ul')
   infoDiv.appendChild(ul)
