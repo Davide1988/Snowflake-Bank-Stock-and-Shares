@@ -31,24 +31,21 @@ SharesPieChart.prototype.renderInfo= function (sum) {
   infoDiv.classList.add('client-info')
   this.container.appendChild(infoDiv)
 
-  const name = document.createElement('h3')
-  name.textContent = `Geoffrey Butterworth  `
+  const name = document.createElement('h4')
+  name.textContent = `MIMNDSC24383578: Geoffrey Butterworth`
   infoDiv.appendChild(name)
 
-  const account = document.createElement('h4')
-  account.textContent = `MIMNDSC24383578`
-  infoDiv.appendChild(account)
+  // const account = document.createElement('h4')
+  // account.textContent = `MIMNDSC24383578`
+  // infoDiv.appendChild(account)
 
-  const ul = document.createElement('ul')
-  infoDiv.appendChild(ul)
-
-  const howManyInvestment = document.createElement('li')
+  const howManyInvestment = document.createElement('h4')
   howManyInvestment.textContent = `Number of items in your portfolio: ${this.objects.length}`
-  ul.appendChild(howManyInvestment)
+  infoDiv.appendChild(howManyInvestment)
 
-  const totalMoney = document.createElement('li')
+  const totalMoney = document.createElement('h4')
   totalMoney.textContent = `Total value of your shares: $${sum.toFixed(2)}`
-  ul.appendChild(totalMoney)
+  infoDiv.appendChild(totalMoney)
 
 };
 
@@ -86,6 +83,9 @@ SharesPieChart.prototype.pieChartRender = function () {
         },
         tooltip:{
           pointFormat :'{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits: {
+          enabled: false
         },
         series: [{
             name: '% of total',
