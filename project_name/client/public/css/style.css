@@ -22,7 +22,7 @@ html{
 
 /* gray header */
 .top-gray-header {
-background:#eceff0;
+background:#E4E4E4;
 padding-top:.5em;
 border-top: solid 1px #555555;
 border-bottom: solid 1px #555555;
@@ -137,12 +137,12 @@ li {
   display:flex;
   align-items: center;
   padding-left: 10px;
-  background:#eceff0;
+  background: #E4E4E4;
 }
 
 .copyright p{
  word-spacing:1px;
- color: gray;
+ color: #555555;
  font-family: 'helvetica', serif;
  font-size: 12px;
 
@@ -196,4 +196,9 @@ li {
 }
 
 .graph-div{
+}
+
+.wall-pic {
+ width: 100%;
+ height: 250px;
 }
