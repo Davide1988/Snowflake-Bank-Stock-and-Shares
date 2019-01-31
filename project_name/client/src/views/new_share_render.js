@@ -83,7 +83,7 @@ NewShareRender.prototype.renderGraph = function () {
          xAxis: {title: {text: null},
                 labels: {enabled: false}}
           ,
-          yAxis: {title: {text: 'Share Price in Cents'}}
+          yAxis: {title: {text: 'Share Price in Dollars'}}
           ,
          credits: {
              enabled: false
