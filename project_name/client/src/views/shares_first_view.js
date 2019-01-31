@@ -17,6 +17,7 @@ SharesFirstView.prototype.bindEvent = function () {
       evt.preventDefault()
       this.space.innerHTML =  " "
       const showPortfolio = new ShowPortfolio(this.space, this.shares)
+      console.log(this.shares);
       showPortfolio.render()
     })
 }

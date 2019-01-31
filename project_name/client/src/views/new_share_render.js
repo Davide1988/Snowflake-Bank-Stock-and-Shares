@@ -28,7 +28,10 @@ NewShareRender.prototype.render = function () {
 
   this.inputShares = document.createElement('input')
   this.inputShares.type = "number"
+  this.inputShares.id = "input"
   this.space.appendChild(this.inputShares)
+
+
 
   const buyButton = document.createElement('button')
   buyButton.textContent = "Buy share"
@@ -109,6 +112,7 @@ NewShareRender.prototype.elaborateDataForGraph = function (history) {
    })
    return inNumbers
 };
+
 
 
 module.exports = NewShareRender;

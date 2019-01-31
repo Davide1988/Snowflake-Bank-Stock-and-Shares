@@ -116,6 +116,7 @@ Shares.prototype.buildDataForSpiralGraph = function (data) {
     return keys.map(key => parseFloat(element["Time Series (Daily)"][key]['4. close']))
 })
 
+  PubSub.publish('forSpeculation', this.strange_data);
 
 for (i = 0; i < data.length; i++){
 
@@ -131,14 +132,5 @@ for (i = 0; i < data.length; i++){
  }
  return finalData;
 }
-
-//
-// for (i = 0; i < this.liveStock.length; i++){
-//   this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"];
-//   this.portfolio[i].number_of_shares;
-//   shareWithPrice = {
-//     name: this.portfolio[i].name_share,
-//     y: this.liveStock[i]["Time Series (Daily)"][theDate]["4. close"] * this.portfolio[i].number_of_shares
-//   }
 
 module.exports = Shares;

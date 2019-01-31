@@ -6,20 +6,7 @@ const NewShare = require('./models/new_share.js')
 
 document.addEventListener('DOMContentLoaded', () => {
 
-// function renderHomeView() {
-//    const url = 'http://localhost:3000/api/shares'
-//    const shares = new Shares(url)
-//    shares.bindEvent();
-//    shares.getData();
-// }
-//
-// const home = document.querySelector('#home')
-// home.addEventListener('click', (evt) =>{
-//   const bla = document.querySelector('#fextry')
-//   bla.innerHTML = " "
-//   renderHomeView()
-//
-// })
+
 
 const buyNewShareButton =  document.querySelector('#new-share')
 const spaceForNewShare = document.querySelector('#fextry')
@@ -47,9 +34,6 @@ shares.getData();
 
 const homeClick = document.querySelector('#home');
     homeClick.addEventListener('click', (event) => {
-        // newShare.getStockData()
-        // shares.getData();
-        // indexView.bindEvent();
         window.location.reload();
 
     })

@@ -51,7 +51,7 @@ ShowPortfolio.prototype.render = function () {
     if (nameTargeted === "all"){
       this.table.innerHTML = " "
       this.pager.innerHTML = " "
-      const passToRenderAll = new ShareTable (this.sharesWithTargetedCategory,this.pager)
+      const passToRenderAll = new ShareTable(this.sharesWithTargetedCategory,this.pager)
       passToRenderAll.getData()
     }
     else {
