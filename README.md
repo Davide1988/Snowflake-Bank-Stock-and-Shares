@@ -12,13 +12,6 @@ Install dependencies:
 ```
 npm install
 
-npm install webpack webpack-cli
-
-npm install express
-
-npm install nodemon
-
-npm install mongodb
 ```
 
 Run a mongoDB server:
