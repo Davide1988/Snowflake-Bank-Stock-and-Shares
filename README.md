@@ -1,4 +1,9 @@
-# javascript_group_project
+# Snowflake Bank Stock and Shares
+
+A full-stack RESTful API JavaScript web app created to easily manage and check the historical of a user portfolio of shares, with useful graphs made using High-charts. It also allows the user to buy new shares. Non-relational database managed by using MongoDB.
+
+
+
 
 ### Installing
 
